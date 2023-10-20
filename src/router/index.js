@@ -4,13 +4,17 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'hash',
   base: import.meta.env.BASE_URL,
   routes: [
     {
       path: '/',
       name: 'home',
       component: () => import('../views/VoteView.vue')
+    },    {
+      path: '/php',
+      name: 'php',
+      component: () => import('../../test.php')
     },
     {
       path: '/about',
