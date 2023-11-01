@@ -4,12 +4,6 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <div id="app">
-    <header>
-
-      <div class="wrapper">
-
-      </div>
-    </header>
 
     <router-view />
   </div>

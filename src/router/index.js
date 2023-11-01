@@ -11,10 +11,6 @@ const router = new VueRouter({
       path: '/',
       name: 'home',
       component: () => import('../views/VoteView.vue')
-    },    {
-      path: '/php',
-      name: 'php',
-      component: () => import('../../test.php')
     },
     {
       path: '/about',
@@ -23,6 +19,14 @@ const router = new VueRouter({
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/secretAdminViewRegu',
+      name: 'admin',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AdminView.vue')
     },
     {
       path: '/vote',
