@@ -4,15 +4,22 @@
       <h1>Busswiler Sports Awards</h1>
 
     </div>
-    <div class="voteContent">
+    <div v-if="showSportler" class="voteContent">
       <h2>Sportler</h2>
       <br>
+      <div v-if="show">
+        <!--        <img width="100" height="100" src="../assets/odi.jpg" alt="odi">-->
+        <h4>{{ first }}</h4>
+      </div>
+      <div v-else class="">
+      </div>
       <b-progress height="3rem" :max=totalVotes variant="warning">
         <b-progress-bar :value=firstVote>
           <span><b>{{ firstPercent }}% </b></span>
         </b-progress-bar>
       </b-progress>
       <br>
+      <h4 v-if="show2">{{ secondMen }}</h4>
       <b-progress height="3rem" :max=totalVotes variant="warning">
         <b-progress-bar :value=secondVote>
 
@@ -20,6 +27,7 @@
         </b-progress-bar>
       </b-progress>
       <br>
+      <h4 v-if="show3">{{ lowestMen }}</h4>
 
       <b-progress height="3rem" :max=totalVotes variant="warning">
         <b-progress-bar :value=thirdVote>
@@ -31,9 +39,10 @@
 
     </div>
 
-    <div class="voteContent">
+    <div v-else class="voteContent">
       <h2>Sportlerin</h2>
       <br>
+      <h4 v-if="showWomen">{{ firstWoman }}</h4>
       <div>
         <b-progress height="3rem" :max=totalVotesWomen variant="warning">
           <b-progress-bar :value=firstVoteWomen>
@@ -42,12 +51,14 @@
         </b-progress>
       </div>
       <br>
+      <h4 v-if="show2Women">{{ secondWomen }}</h4>
       <b-progress height="3rem" :max=totalVotesWomen variant="warning">
         <b-progress-bar :value=secondVoteWomen>
           <span><b>{{ secondPercentWomen }}% </b></span>
         </b-progress-bar>
       </b-progress>
       <br>
+      <h4 v-if="show3Women">{{ lowestWomen }}</h4>
       <b-progress height="3rem" :max=totalVotesWomen variant="warning">
         <b-progress-bar :value=thirdVoteWomen>
           <span><b>{{ thirdPercentWomen }}% </b></span>
@@ -395,10 +406,10 @@ h1 {
 
 .voteContent {
   position: relative;
-  min-width: 600px;
+  min-width: 1000px;
   width: 90%;
   height: 100%;
-  padding-top: 20%;
+  padding-top: 25%;
   padding-right: 100px;
 }
 

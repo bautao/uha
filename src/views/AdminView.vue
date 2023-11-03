@@ -29,6 +29,10 @@
     <br>
     <button @click="show3rdWomen">3te Frau Anzeigen</button>
     <br>
+    <button @click="setShowSportler('false')">Sportlerin anzeigen</button>
+    <br>
+    <button @click="setShowSportler('true')">Sportler anzeigen</button>
+    <br>
     <button @click="showNothing">Keine Namen mehr anzeigen</button>
 
   </div>
@@ -51,6 +55,7 @@ export default {
   },
   created() {
     this.getActive()
+    this.refreshVotes()
   },
   methods: {
     log() {
@@ -76,6 +81,9 @@ export default {
       this.womanVote3 = response6.data;
       console.log(this.womanVote2)
 
+    },
+    async setShowSportler(show){
+      await axios.get(this.$url + '/setShowSportler/'+show, {});
     },
     async startVote(){
       this.active = true
